@@ -56,7 +56,8 @@ app.post('/getproducts',function(req,res){
                     productdesc:data[i].productdesc,
                     productimage:data[i].productimage,
                     productname:data[i].productname,
-                    productprice:data[i].productprice
+                    productprice:data[i].productprice,
+                    productstock:data[i].productstock,
                 })
             }
             res.json({status:true,data:obj,message:"Products Fetched Successfully"})
@@ -510,6 +511,7 @@ app.post('/updateproduct',function(req,res){
     })
 
 })
+
 
 app.post('/deleteproduct',function(req,res){
     request.delete({url:dbUrl+`allproducts/${req.body.userid}.json`},function(err,response,body){
